@@ -12,12 +12,18 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
+const AuthRoutes = require("./routes/AuthRoutes");
+app.use("/api/auth", AuthRoutes);
+
+const DashboardRoutes = require("./routes/Dashboard");
+app.use("/api/dashboard", DashboardRoutes);
+
 app.get("/", (req, res) => {
   res.json({ message: "HeartBeat SIEM Backend is running 🚀" });
 });
 
-app.use("/api/auth", require("./api/auth"));
 app.use("/api/logs", require("./api/logs"));
+
 
 const PORT = process.env.PORT || 5000;
 
