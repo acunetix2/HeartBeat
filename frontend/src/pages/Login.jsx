@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,13 +15,21 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 
 function Login() {
-  const { login } = useAuth();
+  const { login, token } = useAuth();
   const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  // 🚀 Redirect if already logged in
+  useEffect(() => {
+    if (token) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [token, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,10 +42,14 @@ function Login() {
     try {
       setError("");
       setLoading(true);
-      await login(username, password); // calls backend via AuthContext
-      navigate("/"); // redirect to dashboard after successful login
+      await login(username, password); // redirect happens in AuthContext
     } catch (err) {
-      setError(err.response?.data?.error || "Invalid username or password.");
+      console.error("Login error:", err);
+      setError(
+        err.response?.data?.error ||
+          err.response?.data?.message ||
+          "Invalid username or password."
+      );
     } finally {
       setLoading(false);
     }

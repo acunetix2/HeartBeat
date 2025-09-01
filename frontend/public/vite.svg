@@ -1,1 +1,95 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer circle with gradient -->
+  <defs>
+    <linearGradient id="outerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="heartbeatGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#06d6a0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34d399;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Outer circle background -->
+  <circle cx="100" cy="100" r="95" fill="url(#outerGradient)" stroke="#0f172a" stroke-width="2"/>
+  
+  <!-- Inner circle -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#1e293b" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Shield icon (cybersecurity symbol) -->
+  <path d="M100 35 L85 45 L85 75 Q85 90 100 100 Q115 90 115 75 L115 45 Z" 
+        fill="url(#shieldGradient)" 
+        stroke="#451a03" 
+        stroke-width="1.5" 
+        filter="url(#glow)"/>
+  
+  <!-- Shield inner detail -->
+  <path d="M100 42 L90 48 L90 72 Q90 82 100 88 Q110 82 110 72 L110 48 Z" 
+        fill="none" 
+        stroke="#f97316" 
+        stroke-width="1" 
+        opacity="0.6"/>
+  
+  <!-- Heartbeat/pulse line -->
+  <path d="M30 100 L50 100 L60 85 L70 115 L80 75 L90 125 L100 60 L110 140 L120 80 L130 110 L140 90 L150 100 L170 100" 
+        fill="none" 
+        stroke="url(#heartbeatGradient)" 
+        stroke-width="3" 
+        filter="url(#glow)">
+    <animate attributeName="stroke-dasharray" 
+             values="0,1000;140,1000;140,1000;280,1000" 
+             dur="2s" 
+             repeatCount="indefinite"/>
+    <animate attributeName="stroke-dashoffset" 
+             values="0;-140;-140;-280" 
+             dur="2s" 
+             repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Data monitoring dots -->
+  <circle cx="65" cy="130" r="2" fill="#10b981" opacity="0.8">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="135" cy="130" r="2" fill="#06d6a0" opacity="0.6">
+    <animate attributeName="opacity" values="0.2;0.9;0.2" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="100" cy="145" r="1.5" fill="#34d399" opacity="0.7">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="1.2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Network nodes -->
+  <circle cx="60" cy="65" r="1.5" fill="#3b82f6" opacity="0.8"/>
+  <circle cx="140" cy="65" r="1.5" fill="#3b82f6" opacity="0.8"/>
+  <circle cx="60" cy="135" r="1.5" fill="#3b82f6" opacity="0.8"/>
+  <circle cx="140" cy="135" r="1.5" fill="#3b82f6" opacity="0.8"/>
+  
+  <!-- Connection lines -->
+  <line x1="60" y1="65" x2="100" y2="85" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
+  <line x1="140" y1="65" x2="100" y2="85" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
+  <line x1="60" y1="135" x2="100" y2="115" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
+  <line x1="140" y1="135" x2="100" y2="115" stroke="#3b82f6" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Text -->
+  <text x="100" y="175" font-family="Arial, sans-serif" font-size="14" font-weight="bold" 
+        text-anchor="middle" fill="#e2e8f0">SIEM</text>
+  <text x="100" y="190" font-family="Arial, sans-serif" font-size="8" 
+        text-anchor="middle" fill="#94a3b8">SECURITY MONITORING</text>
+</svg>
